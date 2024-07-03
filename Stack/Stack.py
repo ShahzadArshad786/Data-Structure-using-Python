@@ -1,4 +1,5 @@
 import numpy as np 
+import sys 
 
 MAX = 5 
 top = -1 
@@ -8,48 +9,64 @@ STACK = np.ndarray(shape=(MAX,) , dtype = int)
 def PUSH(n):
     global top
     if(top == MAX - 1):
-        print("\n\tStack is Overflow\n")
+        print("\nStack is Overflow\n")
     else: 
         top = top + 1 
         STACK[top] = n 
-        print("\n\t" , n , " is Pushed at Stack Top\n")
+        print("\n",n,"is Pushed at Stack Top\n")
 
 def POP():
     global top
     if(top == -1):
-        print("\n\tStack is Underflow")
+        print("Stack is Underflow")
     else: 
-        print("\n\t",STACK[top], " is Poped From Stack\n")
+        print("\n",STACK[top], " is Poped From Stack\n")
         top = top - 1 
-        
+
+def PEEK():
+    global top
+    if(top == -1):
+        print("Stack is Underflow")
+    else: 
+        print("\nStack TOP : ",STACK[top] , "\n")
+       
 def Show():
     global top
     if(top == -1):
-        print("\tStack is Underflow")
+        print("\nStack is Underflow")
     else:
-        print("\n\tSTACK: ")
+        print("\n*** *** STACK DATA *** ***")
         print("\n\tIndex\tSTACK")
 
         for i in range(top, -1 , -1):
             print("\n\t" , i , "\t" ,  STACK[i] )
+
+
+print("\n* * * STACK MENU * * *\n")
+print("1 --> PUSH in STACK\n")
+print("2 --> POP From STACK\n")
+print("3 --> SHOW STACK\n")
+print("4 --> PEEK of STACK\n")
+print("5 --> EXIT")
 while True:
-    print("\n\n\t * * * STACK MENU * * * \n")
-    print("\n\t1 --> PUSH\n")
-    print("\n\t2 --> POP\n")
-    print("\n\t3 --> SHOW\n")
-
-    choice = int(input("\tEnter Your Choice : "))
-
+    choice = int(input("\nEnter Your Option : "))
+     
     match choice:
         case 1:
-            val = int(input("\n\tEnter an integer value to insert : "))
+            val = int(input("\nEnter Value to be Pushed : "))
             PUSH(val)
-        
+    
         case 2:
             POP()
         
         case 3:
             Show()
             
+        case 4:
+            PEEK()
+
+        case 5:
+            quit()
+            
         case _:
-            print("\n\tInvalid Choice\n")
+            print("\nInvalid Choice\n")
