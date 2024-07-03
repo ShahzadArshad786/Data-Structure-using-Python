@@ -1,7 +1,7 @@
 import numpy as np 
 import sys 
 
-MAX = 5 
+MAX = int(input("\nEnter Size of the Stack : "))
 top = -1 
 
 STACK = np.ndarray(shape=(MAX,) , dtype = int)
@@ -9,7 +9,7 @@ STACK = np.ndarray(shape=(MAX,) , dtype = int)
 def PUSH(n):
     global top
     if(top == MAX - 1):
-        print("\nStack is Overflow\n")
+        print("\nStack is Full\n")
     else: 
         top = top + 1 
         STACK[top] = n 
@@ -18,7 +18,7 @@ def PUSH(n):
 def POP():
     global top
     if(top == -1):
-        print("Stack is Underflow")
+        print("\nStack is Empty")
     else: 
         print("\n",STACK[top], " is Poped From Stack\n")
         top = top - 1 
@@ -26,14 +26,14 @@ def POP():
 def PEEK():
     global top
     if(top == -1):
-        print("Stack is Underflow")
+        print("\nStack is Empty")
     else: 
         print("\nStack TOP : ",STACK[top] , "\n")
        
 def Show():
     global top
     if(top == -1):
-        print("\nStack is Underflow")
+        print("\nStack is Empty")
     else:
         print("\n*** *** STACK DATA *** ***")
         print("\n\tIndex\tSTACK")
