@@ -41,7 +41,6 @@ def Show():
         for i in range(top, -1 , -1):
             print("\n\t" , i , "\t" ,  STACK[i] )
 
-
 print("\n* * * STACK MENU * * *\n")
 print("1 --> PUSH in STACK\n")
 print("2 --> POP From STACK\n")
