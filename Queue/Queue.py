@@ -7,13 +7,17 @@ Front = -1
 Rear  = -1
 
 def Enqueue(x):
+
     global Front, Rear
+
     if Rear == MAX - 1:
         print("\nQueue is Full")
+
     elif Front == -1 and Rear == -1:
         Front = Rear = 0
         QUEUE[Rear] = x
         print("\nData Inserted :", QUEUE[Rear])
+
     else:
         Rear += 1
         QUEUE[Rear] = x
@@ -21,13 +25,16 @@ def Enqueue(x):
 
 def Dequeue():
     global Front, Rear
+
     item = None
     if Front == -1:
         print("\nQueue is Empty")
+
     elif Front == Rear:
         item = QUEUE[Front]
         Front = Rear = -1
         print("\nData Removed at Front :", item)
+
     else:
         item = QUEUE[Front]
         Front += 1
@@ -35,8 +42,10 @@ def Dequeue():
 
 def display():
     global Front, Rear
+
     if Front == -1:
         print("\nQueue is Empty")
+        
     else:
         print("\n*** *** QUEUE DATA *** ***")
         print("\n\tIndex | Data ")
