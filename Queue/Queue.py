@@ -17,47 +17,65 @@ def Enqueue(x):
         Front = Rear = 0
         QUEUE[Rear] = x
         print("\nData Inserted :", QUEUE[Rear])
+        print("------------------------------------")
 
     else:
-        Rear += 1
+        Rear = Rear + 1
         QUEUE[Rear] = x
         print("\nData Inserted :", QUEUE[Rear])
+        print("------------------------------------")
 
 def Dequeue():
     global Front, Rear
 
     item = None
     if Front == -1:
-        print("\nQueue is Empty")
+        print("\tQueue is Empty")
+        print("----------------------------------")
 
     elif Front == Rear:
         item = QUEUE[Front]
         Front = Rear = -1
-        print("\nData Removed at Front :", item)
+        print("Data Removed at Front :", item)
+        print("----------------------------------")
 
     else:
         item = QUEUE[Front]
-        Front += 1
-        print("\nData Removed at Front :", item)
+        Front = Front + 1
+        print("Data Removed at Front :", item)
+        print("----------------------------------")
+
+def Peek():
+    global Front
+
+    if(Front == -1):
+        print("\tQueue is Empty")
+        print("-------------------------------")
+    else:
+        print("Front of Queue : ", QUEUE[Front])
+        print("-------------------------------")
 
 def display():
     global Front, Rear
 
     if Front == -1:
-        print("\nQueue is Empty")
-        
+        print("\tQueue is Empty")
+        print("-----------------------------")
+
     else:
-        print("\n*** *** QUEUE DATA *** ***")
         print("\n\tIndex | Data ")
         print("\n\tFront : " , Front)
         for i in range(Front, Rear + 1):
             print("\n\t", i, "   |", QUEUE[i])
         print("\n\tRear  : " , Rear)
+        print("-----------------------------")
 
 print("\n\n** ** QUEUE MENU ** **")
-print("\n1 : For EnQueue Data")
-print("\n2 : For DeQueue Data")
-print("\n3 : For Display Data")
+print("\n1 : ENQUEUE OPERATION")
+print("\n2 : DEQUEUE OPEARTION")
+print("\n3 : PEEK OPERATION")
+print("\n4 : DISPLAY QUEUE")
+print("\n5 : EXIT")
 
 while True:
     choice = int(input("\nEnter Your Choice : "))
@@ -65,13 +83,32 @@ while True:
     match choice:
 
         case 1:
-            n = int(input("\nEnter Item  Insert in Queue : "))
+            print("------------------------------------")
+            print("\tENQUEUE OPERATION")
+            print("------------------------------------")
+            n = int(input("\nEnter Element to be Insert in Queue : "))
             Enqueue(n)
 
         case 2:
+            print("----------------------------------")
+            print("\tDEQUEUE OPERATION")
+            print("----------------------------------")
             Dequeue()
-
+        
         case 3:
-            display()
+            print("-------------------------------")
+            print("\tPEEK OPERATION")
+            print("-------------------------------")
+            Peek()
+
         case 4:
+            print("-----------------------‐-----")
+            print("\tDISPLAY QUEUE")
+            print("-----------------------------")
+            display()
+
+        case 5:
+            quit()
+
+        case 6:
             print("\nInvalid Option. Try Again.")
